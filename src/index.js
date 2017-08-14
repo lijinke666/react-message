@@ -1,11 +1,12 @@
-import React, { propTypes } from "react"
+import React, { PropTypes } from "react"
 import ReactDOM from "react-dom"
-import classNames from "classnames"
+import classnames from "classnames"
 import Success from "react-icons/lib/fa/check-circle"
 import Error from "react-icons/lib/ti/delete"
 import Warning from "react-icons/lib/ti/warning"
 import Info from "react-icons/lib/ti/pin"
 import Loading from "react-icons/lib/md/loop"
+
 import "./styles.less"
 
 export default class Message extends React.PureComponent {
@@ -13,13 +14,21 @@ export default class Message extends React.PureComponent {
         remove: false
     }
     _container;         
-    _dom;             
+    _dom;               
     constructor(props) {
         super(props)
     }
+    static propTypes = {
+        content:PropTypes.string.isRequired,
+        duration:PropTypes.number.isRequired,
+        theme:PropTypes.oneOf(['light','dark']),
+        onClose:PropTypes.func
+    }
     static defaultProps = {
-        defaultDuration: 2,
-        defaultContent: "提示"
+        type:"info",
+        content:"balabala",
+        duration: 2,
+        theme:"light",
     }
     componentWillUnMount() {
         document.body.removeChild(document.querySelector('.rc-message'))
@@ -45,13 +54,14 @@ export default class Message extends React.PureComponent {
         ReactDOM.unmountComponentAtNode(this._container)
         this._dom.remove()
     }
-    static renderElement = (type, content = "提示", duration = 2, onClose) => {
+    static renderElement = (type, {content ,duration  ,theme,onClose}) => {
         let div = document.createElement('div')
         let _message = ReactDOM.render(
             <Message
                 type={type}
                 content={content}
                 duration={duration}
+                theme={theme}
                 onClose={onClose}
             />,
             div
@@ -60,25 +70,26 @@ export default class Message extends React.PureComponent {
         _message._container = div
         _message._dom = dom
     }
-    static error(content, duration, onClose) {
-        this.renderElement("error", content, duration, onClose)
+    static error(options) {
+        this.renderElement("error", options)
     }
-    static info(content, duration, onClose) {
-        this.renderElement("info", content, duration, onClose)
+    static info(options) {
+        this.renderElement("info", options)
     }
-    static success(content, duration, onClose) {
-        this.renderElement("success", content, duration, onClose)
+    static success(options) {
+        this.renderElement("success", options)
     }
-    static warning(content, duration, onClose) {
-        this.renderElement("warning", content, duration, onClose)
+    static warning(options) {
+        this.renderElement("warning",options)
     }
-    static loading(content, duration, onClose) {
-        this.renderElement("loading", content, duration, onClose)
+    static loading(options) {
+        this.renderElement("loading", options)
     }
 
     render() {
         const {
-             type,
+            theme,
+            type,
             content,
             duration
          } = this.props
@@ -95,11 +106,17 @@ export default class Message extends React.PureComponent {
         const isShowClassName = type === typeConfig
 
         return (
-            <div key="message" className="rc-message-notice-content">
+            <div key="message" className={
+                classnames(
+                    "rc-message-notice-content",
+                    {"theme-dark":theme === "dark"},
+                    {"theme-light":theme === "light"}
+                )
+            }>
                 <div
                     className={
-                        classNames(
-                            'rc-message-notice-content-custom',
+                        classnames(
+                            "rc-message-notice-content-custom",
                             `message-${typeConfig[type]}`
                         )
                     }

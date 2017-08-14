@@ -29,6 +29,65 @@
     justify-content: center;
     align-items: center;
     &-notice-content{
+        .message-loading{
+            svg{
+                animation: messageLoadingAnimate  2s cubic-bezier(0.175, 0.885, 0.32, 1) infinite;
+            }
+        }
+        .icon{
+            svg,i{
+                font-size: 30px;
+                @media screen and (max-width:768px){
+                    font-size:20px
+                }
+            }
+        }
+        .text{
+            font-size: 20px;
+            @media screen and (max-width:768px){
+                font-size:16px
+            }
+        }
+        &.theme-dark{
+            background: rgba(0,0,0,.5);
+            color:#fff;
+            svg,i,.text{
+                color:#fff
+            }
+        }
+        &.theme-light{
+            background: #fff;
+            .text{
+                color:@text-color;
+            }
+            .message-info{
+                svg{
+                    color:@info-color
+                }
+            }
+            .message-error{
+                svg{
+                    color:@error-color
+                }
+            }
+            .message-success{
+                svg{
+                    color:@success-color
+                }
+            }
+            .message-warning{
+                svg{
+                    color:@warning-color
+                }
+            }
+            
+            .message-loading{
+                svg{
+                    color:@loading-color
+                }
+            }
+ 
+        }
         .clearfix();
         max-width: 80%;
         max-height:80%;
@@ -40,56 +99,12 @@
         padding: 5px 10px;
         border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,.2);
-        background: #fff;
         display:inline-block;
         pointer-events: all;
         text-align: center;
         animation: messageAnimate .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        &-custom{
-            &.message-info{
-                svg{
-                    color:@info-color
-                }
-            }
-            &.message-error{
-                svg{
-                    color:@error-color
-                }
-            }
-            &.message-success{
-                svg{
-                    color:@success-color
-                }
-            }
-            &.message-warning{
-                svg{
-                    color:@warning-color
-                }
-            }
-            
-            &.message-loading{
-                svg{
-                    animation: messageLoadingAnimate  2s cubic-bezier(0.175, 0.885, 0.32, 1) infinite;
-                    color:@loading-color
-                }
-            }
-            .icon{
-                svg,i{
-                    font-size: 30px;
-                    @media screen and (max-width:768px){
-                        font-size:20px
-                    }
-                }
-            }
-            .text{
-                color:@text-color;
-                font-size: 20px;
-                @media screen and (max-width:768px){
-                    font-size:16px
-                }
-            }
-        }
     }
+    
 }
 
 @keyframes messageAnimate{

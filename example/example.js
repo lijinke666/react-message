@@ -3,17 +3,59 @@ import ReactDOM from "react-dom"
 import Message from "../src/index"
 import Button from "rc-button"
 
+const success = () => Message.success({ content: 'success' })
+const warning = () => Message.warning({ content: 'warning' })
+const info = () => Message.info({ content: 'info' })
+const error = () => Message.error({ content: 'error' })
+const loading = () => (
+    Message.loading({
+        content: 'loading',
+        duration: 100
+    })
+)
+const duration = () => (
+    Message.success({
+        content: '10s duration',
+        duration: 10
+    })
+)
+const onClose = () => (
+    Message.info({
+        content: 'are you ready?',
+        duration: 3,
+        onClose(){
+            Message.info({content:"i am callback :)"})
+        }
+    })
+)
 
+const lightTheme = () => (
+    Message.success({
+        conten: "i am light",
+        theme: "light"
+    })
+)
+
+const darkTheme = () => (
+    Message.success({
+        conten: "i am dark",
+        theme: "dark"
+    })
+)
 const Demo = () => (
     <div>
         <h2>Example</h2>
-        <p><Button type="success" onClick={() => Message.success('success')}>success</Button></p>
-        <p><Button type="warning" onClick={() => Message.warning('warning')}>primary</Button></p>
-        <p><Button type="primary" onClick={() => Message.info('info')}>info</Button></p>
-        <p><Button type="error" onClick={() => Message.error('error')}>error</Button></p>
-        <p><Button type="primary" onClick={() => Message.loading('loading', 10)}>loading</Button></p>
-        <p><Button type="primary" onClick={() => Message.info('duration', 100)}>10s duration</Button></p>
-        <p><Button type="primary" onClick={() => Message.info('are you ready?', 3, () => Message.info('i am callback'))}>callback</Button></p>
+        <p><Button type="success" onClick={success}>success</Button></p>
+        <p><Button type="warning" onClick={warning}>warning</Button></p>
+        <p><Button type="primary" onClick={info}>info</Button></p>
+        <p><Button type="error" onClick={error}>error</Button></p>
+        <p><Button type="primary" onClick={loading}>loading</Button></p>
+        <p><Button type="primary" onClick={duration}>10s duration</Button></p>
+        <p><Button type="primary" onClick={onClose}>onClose</Button></p>
+
+        <h2>Theme (dark | light)</h2>
+        <p><Button type="primary" onClick={lightTheme}>light theme</Button></p>
+        <p><Button type="primary" onClick={darkTheme}>dark theme</Button></p>
     </div>
 )
 ReactDOM.render(
