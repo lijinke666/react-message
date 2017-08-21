@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Message from "../src/index"
+import Message from "rc-message"
 import Button from "rc-button"
 
 const success = () => Message.success({ content: 'success' })
