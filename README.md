@@ -16,12 +16,12 @@ git clone https://github.com/lijinke666/rc-message
  - `npm run demo`   run example
 
 
+## Usage
 ```javascript
 import React from "react"
 import ReactDOM from "react-dom"
-import Message from "rc-message"
+import Message from "../src/index"
 import Button from "rc-button"
-
 
 const success = () => Message.success({ content: 'success' })
 const warning = () => Message.warning({ content: 'warning' })
@@ -41,10 +41,38 @@ const duration = () => (
 )
 const onClose = () => (
     Message.info({
-        content: 'are you ready?',
+        content: 'Are you ready?',
         duration: 3,
         onClose(){
             Message.info({content:"i am callback :)"})
+        }
+    })
+)
+
+const confirm = ()=>(
+    Message.confirm({
+        content:"Are you a GAY ?",
+        okText:"YES",
+        cancelText:"NO",
+        onOk(){
+            Message.success({content:'YES!!'})
+        },
+        onCancel(){
+            Message.error({content:"NO!!"})
+        }
+    })
+)
+
+const prompt = ()=>(
+    Message.prompt({
+        content:"Confirm password",
+        inputType:"password",
+        placeholder:"",
+        onOk(value){
+            Message.success({content:value})
+        },
+        onCancel(){
+            Message.info({content:"Cancel"})
         }
     })
 )
@@ -72,6 +100,8 @@ const Demo = () => (
         <p><Button type="primary" onClick={loading}>loading</Button></p>
         <p><Button type="primary" onClick={duration}>10s duration</Button></p>
         <p><Button type="primary" onClick={onClose}>onClose</Button></p>
+        <p><Button type="orange" onClick={confirm}>confirm</Button></p>
+        <p><Button type="info" onClick={prompt}>prompt</Button></p>
 
         <h2>Theme (dark | light)</h2>
         <p><Button type="primary" onClick={lightTheme}>light theme</Button></p>
@@ -90,6 +120,8 @@ ReactDOM.render(
 - `Message.info(options)`
 - `Message.warning(options)`
 - `Message.loading(options)`
+- `Message.confirm(options)`
+- `Message.prompt(options)`
 
 ## Options 
 - options.content
@@ -111,3 +143,43 @@ ReactDOM.render(
   - `Desc` : `Specify a function that will be called after the message closed`
   - `Type` : `Function`
   - `Default` : `-`
+
+## Special options
+## Base Options of the `confirm()` and `prompt()`
+
+- options.content
+    - `Desc` : `content of the message`
+    - `Type` : `string | ReactNode`
+    - `Default` : `Balabala`
+
+- options.okText 
+    - `Desc` : `Text of the OK button`
+    - `Type` : `string`
+    - `Default` : `OK`
+
+- options.cancelText 
+    - `Desc` : `Text of the Cancel button`
+    - `Type` : `string`
+    - `Default` : `Cancel`
+
+- options.onOk 
+    - `Desc` : `Specify a function that will be called when a user clicked OK buttond`
+    - `Type` : `Function`
+    - `Default` : `-`
+    
+- options.onCancel 
+    - `Desc` : `Specify a function that will be called when a user clicked mask, close button on top right or cancel button`
+    - `Type` : `Function`
+    - `Default` : `-`
+
+- `Message.prompt(options)`
+    - options.inputType
+        - `Desc` : `input html type of the message`
+        - `Type` : `string`
+        - `Default` : `text`
+    - options.placeholder 
+        - `Desc` : `input placeholder of the message`
+        - `Type` : `string`
+        - `Default` : `-`
+
+

@@ -47,6 +47,38 @@
             @media screen and (max-width:768px){
                 font-size:16px
             }
+            svg{
+                color:@info-color;
+                &+.title{
+                    font-size:16px;
+                    vertical-align: middle;
+                    margin-left: 5px;
+                }
+            }
+        }
+        .prompt-input{
+            position: relative;
+            display: inline-block;
+            padding: 2px 7px;
+            height: 25px;
+            cursor: text;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(0,0,0,.65);
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            transition: all .3s;
+        }
+        .confirm-footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            .confirm-btn{
+                flex-basis: 40%;
+            }
         }
         &.theme-dark{
             background: rgba(0,0,0,.5);
@@ -75,7 +107,7 @@
                     color:@success-color
                 }
             }
-            .message-warning{
+            .message-warning,.message-confirm{
                 svg{
                     color:@warning-color
                 }
@@ -91,9 +123,9 @@
         .clearfix();
         max-width: 80%;
         max-height:80%;
-        min-width: 180px;
+        min-width: 200px;
         @media screen and (max-width:768px){
-            min-width: 160px;
+            min-width: 180px;
         }
         min-height: 30px;
         padding: 5px 10px;

@@ -21,10 +21,38 @@ const duration = () => (
 )
 const onClose = () => (
     Message.info({
-        content: 'are you ready?',
+        content: 'Are you ready?',
         duration: 3,
         onClose(){
             Message.info({content:"i am callback :)"})
+        }
+    })
+)
+
+const confirm = ()=>(
+    Message.confirm({
+        content:"Are you a GAY ?",
+        okText:"YES",
+        cancelText:"NO",
+        onOk(){
+            Message.success({content:'YES!!'})
+        },
+        onCancel(){
+            Message.error({content:"NO!!"})
+        }
+    })
+)
+
+const prompt = ()=>(
+    Message.prompt({
+        content:"Confirm password",
+        inputType:"password",
+        placeholder:"",
+        onOk(value){
+            Message.success({content:value})
+        },
+        onCancel(){
+            Message.info({content:"Cancel"})
         }
     })
 )
@@ -52,6 +80,8 @@ const Demo = () => (
         <p><Button type="primary" onClick={loading}>loading</Button></p>
         <p><Button type="primary" onClick={duration}>10s duration</Button></p>
         <p><Button type="primary" onClick={onClose}>onClose</Button></p>
+        <p><Button type="orange" onClick={confirm}>confirm</Button></p>
+        <p><Button type="info" onClick={prompt}>prompt</Button></p>
 
         <h2>Theme (dark | light)</h2>
         <p><Button type="primary" onClick={lightTheme}>light theme</Button></p>
