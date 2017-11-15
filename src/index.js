@@ -188,8 +188,8 @@ export default class Message extends PureComponent {
                         (type === typeConfig['confirm'] || isPrompt)
                             ? (
                                 <div className='confirm-footer'>
-                                    <button className="btn confirm-btn" onClick={this.onCancel}>{cancelText}</button>
-                                    <button className="btn confirm-btn primary-btn"  onClick={this.onOk}>{okText}</button>
+                                    <button className="btn confirm-btn btn-default" onClick={this.onCancel}>{cancelText}</button>
+                                    <button className="btn confirm-btn btn-primary"  onClick={this.onOk}>{okText}</button>
                                 </div>
                             )
                             : undefined

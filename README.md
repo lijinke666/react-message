@@ -148,7 +148,7 @@ ReactDOM.render(
   - `Default` : `-`
 
 ## Special options
-## Base Options of the `confirm()` and `prompt()`
+> Base Options of the `confirm()` and `prompt()`
 
 - options.content
     - `Desc` : `content of the message`
