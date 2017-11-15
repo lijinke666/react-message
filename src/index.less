@@ -8,6 +8,15 @@
 @loading-color:darken(@info-color,10%);
 @bg-color:#f7f8fa;  
 @text-color:rgba(0,0,0,.65);
+@border-color:#e8e8e8;
+.btn-hover(@color:@default-color,@lighten:4%,@font-color:#fff){
+    color:@font-color;
+    background-color: @color;
+    border:1px solid @color;
+    &:hover,&:active{
+        background-color: lighten(@color,@lighten)
+    }
+}
 .clearfix(){
   &::before,&::after{
     clear:both;
@@ -136,7 +145,41 @@
         text-align: center;
         animation: messageAnimate .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
+    .btn{
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 500;
+        text-align: center;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        line-height: 1.5;
+        padding: 10px 30px;
+        font-size: 12px;
+        height: 38px;
+        user-select: none;
+        transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+        color: rgba(0,0,0,.65);
+        background-color: #fff;
+        border-color: @border-color;
+        border-radius: 5px;
+        outline: none;
+        .btn-hover(@default-color);
+        &.btn-primary{
+            .btn-hover(@primary-color)
+        }
+        &.btn-default{
+            color:rgba(0,0,0,.65);
+            background-color: #fff;
+            border:1px solid @default-color;
+            &:hover,&:active{
+                border:1px solid @primary-color
+            }
+        }
+    }
 }
 
 @keyframes messageAnimate{

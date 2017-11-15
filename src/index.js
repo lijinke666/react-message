@@ -1,16 +1,16 @@
-import React, { PropTypes } from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
-import Button from "rc-button"
 import classnames from "classnames"
+
 import Success from "react-icons/lib/fa/check-circle"
 import Error from "react-icons/lib/ti/delete"
 import Warning from "react-icons/lib/ti/warning"
 import Info from "react-icons/lib/ti/pin"
 import Loading from "react-icons/lib/md/loop"
 
-import "./styles.less"
 
-export default class Message extends React.PureComponent {
+export default class Message extends PureComponent {
     state = {
         remove: false,
         value:""
@@ -188,8 +188,8 @@ export default class Message extends React.PureComponent {
                         (type === typeConfig['confirm'] || isPrompt)
                             ? (
                                 <div className='confirm-footer'>
-                                    <Button className="confirm-btn" onClick={this.onCancel}>{cancelText}</Button>
-                                    <Button className="confirm-btn" type="primary" onClick={this.onOk}>{okText}</Button>
+                                    <button className="btn confirm-btn" onClick={this.onCancel}>{cancelText}</button>
+                                    <button className="btn confirm-btn primary-btn"  onClick={this.onOk}>{okText}</button>
                                 </div>
                             )
                             : undefined

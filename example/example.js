@@ -1,7 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Message from "rc-message"
+import Message from "../src"
 import Button from "rc-button"
+import "../src/index.less"
 
 const success = () => Message.success({ content: 'success' })
 const warning = () => Message.warning({ content: 'warning' })

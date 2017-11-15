@@ -1,5 +1,5 @@
 # rc-message
-a react notice ui component 
+a message notice ui component for react
 
 ## Installation
 ```
@@ -7,21 +7,24 @@ npm install rc-message --save
 ```
 
 ## Example
-### [Live Demo](https://lijinke666.github.io/rc-message/)
+### [https://lijinke666.github.io/rc-message/](https://lijinke666.github.io/rc-message/)
+
+
+## Development
 
 ```
 git clone https://github.com/lijinke666/rc-message
+npm install
+npm start
 ```
- - `yarn` of `npm install`
- - `npm run demo`   run example
 
 
 ## Usage
-```javascript
+```jsx
 import React from "react"
 import ReactDOM from "react-dom"
 import Message from "rc-message"
-import Button from "rc-button"
+import "rc-message/asstes/index.css"
 
 const success = () => Message.success({ content: 'success' })
 const warning = () => Message.warning({ content: 'warning' })
@@ -93,19 +96,19 @@ const darkTheme = () => (
 const Demo = () => (
     <div>
         <h2>Example</h2>
-        <p><Button type="success" onClick={success}>success</Button></p>
-        <p><Button type="warning" onClick={warning}>warning</Button></p>
-        <p><Button type="primary" onClick={info}>info</Button></p>
-        <p><Button type="error" onClick={error}>error</Button></p>
-        <p><Button type="primary" onClick={loading}>loading</Button></p>
-        <p><Button type="primary" onClick={duration}>10s duration</Button></p>
-        <p><Button type="primary" onClick={onClose}>onClose</Button></p>
-        <p><Button type="orange" onClick={confirm}>confirm</Button></p>
-        <p><Button type="info" onClick={prompt}>prompt</Button></p>
+        <p><button onClick={success}>success</button></p>
+        <p><button onClick={warning}>warning</button></p>
+        <p><button onClick={info}>info</button></p>
+        <p><button onClick={error}>error</button></p>
+        <p><button onClick={loading}>loading</button></p>
+        <p><button onClick={duration}>10s duration</button></p>
+        <p><button onClick={onClose}>onClose</button></p>
+        <p><button onClick={confirm}>confirm</button></p>
+        <p><button onClick={prompt}>prompt</button></p>
 
         <h2>Theme (dark | light)</h2>
-        <p><Button type="primary" onClick={lightTheme}>light theme</Button></p>
-        <p><Button type="primary" onClick={darkTheme}>dark theme</Button></p>
+        <p><button onClick={lightTheme}>light theme</button></p>
+        <p><button onClick={darkTheme}>dark theme</button></p>
     </div>
 )
 ReactDOM.render(
