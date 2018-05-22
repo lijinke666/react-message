@@ -2,8 +2,8 @@
 [![npm](https://img.shields.io/npm/dm/rc-message.svg?style=flat-square)](https://www.npmjs.com/package/rc-message)
 [![npm](https://img.shields.io/npm/l/rc-message.svg?style=flat-square)](https://www.npmjs.com/package/rc-message)
 [![Build Status](https://travis-ci.org/lijinke666/rc-message.svg?branch=master)](https://travis-ci.org/lijinke666/rc-message)
-[![npm version](https://img.shields.io/npm/v/react-jinke-music-player.svg?style=flat-square)](https://badge.fury.io/js/rc-message)
-[![Dependency Status](https://beta.gemnasium.com/badges/github.com/lijinke666/rc-message.svg?style=flat-square)](https://beta.gemnasium.com/projects/github.com/lijinke666/rc-message)
+[![npm version](https://img.shields.io/npm/v/rc-message.svg?style=flat-square)](https://badge.fury.io/js/rc-message)
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/lijinke666/react-message.svg?style=flat-square)](https://beta.gemnasium.com/projects/github.com/lijinke666/react-message)
 
 a message notice ui component for react
 
@@ -19,19 +19,19 @@ yarn add rc-message
 
 ## Screenshots
 
-> ![success](https://github.com/lijinke666/rc-message/blob/master/screenshots/success.png)
-> ![confirm](https://github.com/lijinke666/rc-message/blob/master/screenshots/confirm.png)
-> ![prompt](https://github.com/lijinke666/rc-message/blob/master/screenshots/prompt.png)
-> ![dark](https://github.com/lijinke666/rc-message/blob/master/screenshots/dark.png)
+> ![success](https://github.com/lijinke666/react-message/blob/master/screenshots/success.png)
+> ![confirm](https://github.com/lijinke666/react-message/blob/master/screenshots/confirm.png)
+> ![prompt](https://github.com/lijinke666/react-message/blob/master/screenshots/prompt.png)
+> ![dark](https://github.com/lijinke666/react-message/blob/master/screenshots/dark.png)
 
 ## Example
-[https://lijinke666.github.io/rc-message/](https://lijinke666.github.io/rc-message/)
+[https://lijinke666.github.io/react-message/](https://lijinke666.github.io/react-message/)
 
 
 ## Development
 
 ```
-git clone https://github.com/lijinke666/rc-message
+git clone https://github.com/lijinke666/react-message
 npm install | yarn
 npm start
 open `http://localhost:3000/`
