@@ -1,0 +1,226 @@
+@import "./vars.less";
+*{
+    box-sizing: border-box;
+}
+.btn-hover(@color: @default-color, @lighten: 4%, @font-color: #fff) {
+    color: @font-color;
+    background-color: @color;
+    border: 1px solid @color;
+    &:hover,
+    &:active {
+        background-color: lighten(@color, @lighten)
+    }
+}
+
+.clearfix() {
+    &::before,
+    &::after {
+        clear: both;
+        content: "";
+        display: table;
+        zoom: 1;
+    }
+}
+
+.rc-message {
+    @common-animate-type: cubic-bezier(.43, -0.1, .16, 1.1);
+    @common-animate-time:400ms @common-animate-type;
+    position: fixed;
+    z-index: 999;
+    pointer-events:none;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-content {
+        .message-loading {
+            svg {
+                animation: messageLoadingAnimate 900ms linear infinite;
+            }
+        }
+        .icon {
+            svg,
+            i {
+                font-size: 45px;
+                @media screen and (max-width: 768px) {
+                    font-size:25px
+                }
+            }
+        }
+        .text {
+            font-size: 24px;
+            @media screen and (max-width: 768px) {
+                font-size:16px
+            }
+            svg {
+                color: @primary-color;
+                &+.title {
+                    font-size: 20px;
+                    vertical-align: middle;
+                    margin-left: 5px;
+                }
+            }
+        }
+        .prompt-input {
+            position: relative;
+            display: inline-block;
+            padding: 2px 7px;
+            height: 35px;
+            outline: none;
+            cursor: text;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(0, 0, 0, .65);
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            width:100%;
+        }
+        .confirm-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0 5px 0;
+            .confirm-btn {
+                flex: 1 1 auto;
+            }
+        }
+        &.theme-dark {
+            background: rgba(0, 0, 0, .5);
+            color: #fff;
+            svg,
+            i,
+            .text {
+                color: #fff
+            }
+        }
+        &.theme-light {
+            background: #fff;
+            .text {
+                color: @text-color;
+            }
+            .message-info {
+                svg {
+                    color: @info-color
+                }
+            }
+            .message-error {
+                svg {
+                    color: @error-color
+                }
+            }
+            .message-success {
+                svg {
+                    color: @success-color
+                }
+            }
+            .message-warning,
+            .message-confirm {
+                svg {
+                    color: @warning-color
+                }
+            }
+            .message-loading {
+                svg {
+                    color: @loading-color
+                }
+            }
+        }
+        .clearfix();
+        width:300px;
+        max-height: 80%;
+        @media screen and (max-width:768px){
+            min-width: 180px;
+            width:auto !important;
+        }
+        min-height: 30px;
+        padding: 12px 25px;
+        border-radius: 4px;
+        box-shadow: 0 2px 12px rgba(0,0,0,.15);
+        background: #fff;
+        display:inline-block;
+        pointer-events: all;
+        text-align: center;
+        transform: translate3d(0,0,0);
+        &.open{
+            animation: messageAnimateOpen @common-animate-time forwards;
+        }
+        &.close{
+            animation: messageAnimateClose @common-animate-time forwards;
+        }
+    }
+    .btn:first-child{
+        margin-right:10px;
+    }
+    .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 500;
+        text-align: center;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        line-height: 1.5;
+        padding: 10px 30px;
+        font-size: 14px;
+        user-select: none;
+        transition: all @common-animate-time;
+        position: relative;
+        color: rgba(0, 0, 0, .65);
+        background-color: #fff;
+        border-color: @border-color;
+        border-radius: 5px;
+        outline: none;
+        .btn-hover(@default-color);
+        &.btn-primary {
+            .btn-hover(@primary-color)
+        }
+        &.btn-default {
+            color: rgba(0, 0, 0, .65);
+            background-color: #fff;
+            border: 1px solid @default-color;
+            &:hover,
+            &:active {
+                border: 1px solid @primary-color
+            }
+        }
+        &+.btn{
+            margin-left:10px;
+        }
+    }
+    @keyframes messageAnimateClose{
+        from {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+        }
+        to{
+            opacity: 0;
+            transform: translate3d(0,-100px,0); 
+        }
+    }
+    @keyframes messageAnimateOpen{
+        from {
+            opacity: 0;
+            transform: translate3d(0,-100px,0);
+        }
+        to{
+            opacity: 1;
+            transform: scale(1) translate3d(0,0,0); 
+        }
+    }
+    @keyframes messageLoadingAnimate {
+        from {
+            transform: rotate(0deg)
+        }
+        to {
+            transform: rotate(360deg)
+        }
+    }
+}
