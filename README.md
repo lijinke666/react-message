@@ -19,10 +19,10 @@ yarn add rc-message
 
 ## Screenshots
 
-> ![success](https://github.com/lijinke666/react-message/blob/master/screenshots/success.png)
-> ![confirm](https://github.com/lijinke666/react-message/blob/master/screenshots/confirm.png)
-> ![prompt](https://github.com/lijinke666/react-message/blob/master/screenshots/prompt.png)
-> ![dark](https://github.com/lijinke666/react-message/blob/master/screenshots/dark.png)
+![success](https://github.com/lijinke666/react-message/blob/master/screenshots/success.png)
+![confirm](https://github.com/lijinke666/react-message/blob/master/screenshots/confirm.png)
+![prompt](https://github.com/lijinke666/react-message/blob/master/screenshots/prompt.png)
+![dark](https://github.com/lijinke666/react-message/blob/master/screenshots/dark.png)
 
 ## Example
 [https://lijinke666.github.io/react-message/](https://lijinke666.github.io/react-message/)
