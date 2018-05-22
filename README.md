@@ -1,7 +1,7 @@
 # rc-message
 [![npm](https://img.shields.io/npm/dm/rc-message.svg?style=flat-square)](https://www.npmjs.com/package/rc-message)
 [![npm](https://img.shields.io/npm/l/rc-message.svg?style=flat-square)](https://www.npmjs.com/package/rc-message)
-[![Build Status](https://travis-ci.org/lijinke666/rc-message.svg?branch=master)](https://travis-ci.org/lijinke666/rc-message)
+[![Build Status](https://travis-ci.org/lijinke666/react-message.svg?branch=master)](https://travis-ci.org/lijinke666/react-message)
 [![npm version](https://img.shields.io/npm/v/rc-message.svg?style=flat-square)](https://badge.fury.io/js/rc-message)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/lijinke666/react-message.svg?style=flat-square)](https://beta.gemnasium.com/projects/github.com/lijinke666/react-message)
 
