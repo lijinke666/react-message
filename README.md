@@ -1,9 +1,8 @@
-# rc-message
+# react-message
 [![npm](https://img.shields.io/npm/dm/rc-message.svg?style=flat-square)](https://www.npmjs.com/package/rc-message)
 [![npm](https://img.shields.io/npm/l/rc-message.svg?style=flat-square)](https://www.npmjs.com/package/rc-message)
 [![Build Status](https://travis-ci.org/lijinke666/react-message.svg?branch=master)](https://travis-ci.org/lijinke666/react-message)
 [![npm version](https://img.shields.io/npm/v/rc-message.svg?style=flat-square)](https://badge.fury.io/js/rc-message)
-[![Dependency Status](https://beta.gemnasium.com/badges/github.com/lijinke666/react-message.svg?style=flat-square)](https://beta.gemnasium.com/projects/github.com/lijinke666/react-message)
 
 a message notice ui component for react
 
@@ -41,6 +40,7 @@ open `http://localhost:3000/`
 ## Usage
 ```jsx
 import Message from "rc-message"
+import "rc-message/assets/index.css"
 Message.success({
     content:"hello world"
 })
@@ -59,7 +59,7 @@ Message.success({
 - options.content
   - `Desc` : `content of the message`
   - `Type` : `string | ReactNode`
-  - `Default` : `Balabala`
+  - `Default` : `-`
 
 - options.duration 
   - `Desc` : `time before auto-dismiss,in seconds`

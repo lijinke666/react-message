@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Message from "../src";
+import "../src/styles.less"
 import "./example.less"
 
 const success = () => Message.success({ content: "success" });

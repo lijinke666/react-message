@@ -9,8 +9,6 @@ import Warning from "react-icons/lib/ti/warning";
 import Info from "react-icons/lib/ti/pin";
 import Loading from "react-icons/lib/fa/spinner";
 
-import "./styles.less"
-
 const prefix = "rc-message";
 export default class RcMessage extends PureComponent {
   state = {
@@ -51,7 +49,7 @@ export default class RcMessage extends PureComponent {
     theme: "light",
     inputType: "text"
   };
-  componentWillUnMount() {
+  componentWillunmount() {
     document.body.removeChild(document.querySelector(`.${prefix}`));
   }
   createContainer() {
